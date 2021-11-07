@@ -63,62 +63,61 @@
             <p></p>
         </div>
     
-    
         <div class="scroll1-div" >
-            <object id="ob1" width="100%" height="100%" data="./pdfs/En06-T1.pdf"></object>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            
+            <object
+              data="./pdfs/En06-T1.pdf"
+              type="application/pdf"
+              width="100%"
+              height="100%"
+              id="ob1" 
+            >
+      
+              <iframe
+                src="./pdfs/En06-T1.pdf"
+                width="100%"
+                height="100%"
+              >
+              <p>This browser does not support PDF!</p>
+              </iframe>
+      
+            </object>
+          
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-        </div>
-
-       
     </div>
+
+   
+</div>
 <script>
-    var currentAudio = null;
-    var currentId = ""; 
-    var currentIdmau = "white"; 
+var currentAudio = null;
+var currentId = ""; 
+var currentIdmau = "white"; 
 
-    function getId(ptdaclick){
-        //doi pdf bai mmoi chon 
-        //let elements = document.getElementById('ob1').data="./pdfs/En06-1.02-1.03-1.04-T18.pdf";
-        
-        //doi mau o chon truoc ra trang  va omoi chon ra xanh 
-        if(currentId != "" && currentIdmau=="lightgreen"){document.getElementById(currentId).style.backgroundColor = "white";}
-        var nameId=event.target.id;
-        document.getElementById(nameId).style.backgroundColor = "lightgreen";
-        currentId=nameId;
-        currentIdmau="lightgreen";
+function getId(ptdaclick){
+    //doi mau o chon truoc ra trang  va omoi chon ra xanh 
+    if(currentId != "" && currentIdmau=="lightgreen"){document.getElementById(currentId).style.backgroundColor = "white";}
+    var nameId=event.target.id;
+    document.getElementById(nameId).style.backgroundColor = "lightgreen";
+    currentId=nameId;
+    currentIdmau="lightgreen";
 
-        //doi pdf bai moi chon 
-        var tenteppdf = document.getElementById(nameId).innerHTML;
-        tenteppdf=tenteppdf.slice(tenteppdf.indexOf("-T"));
-        let elements = document.getElementById('ob1').data='./pdfs/En06'+tenteppdf+'.pdf';
+    //doi pdf bai moi chon 
+    var tenteppdf = document.getElementById(nameId).innerHTML;
+    tenteppdf=tenteppdf.slice(tenteppdf.indexOf("-T"));
+    let elements = document.getElementById('ob1').data='./pdfs/En06'+tenteppdf+'.pdf';
 
-        //tat audio o chon truoc va bat audio o moi chon
-        if(currentAudio != null && !currentAudio.paused){currentAudio.pause();}
-        var audio = $('#audio-'+ptdaclick.id)[0];
-        audio.play();
-        currentAudio = audio;
+    //tat audio o chon truoc va bat audio o moi chon
+    if(currentAudio != null && !currentAudio.paused){
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
     }
+    var audio = $('#audio-'+ptdaclick.id)[0];
+    audio.play();
+    currentAudio = audio;
+    
+}
 </script>
-<script>
-    //var currentAudio = null;
-    //$("p").click(function () {
-        
-        //var audio = $('#audio-1')[0];
-        //var audio = $('#audio-1')[0];
-        //audio.play();
-        
-        //if(currentAudio != null && !currentAudio.paused){currentAudio.pause();}
-        //var audio = $('#audio-1')[0];
-        //audio.play();
-        //if (audio.paused) {
-        //    audio.play();
-        //    currentAudio = audio;
-        //} else {
-        //    audio.pause();
-        //}
-    //});
-</script>   
 
 </body>
 </html>
