@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>En6 Starter Unit</title>
+<style>
+    body {
+        margin: 1 1 1 1;
+    }
+    
+    #container {
+        display: grid;
+        grid-template-columns: 100%;
+        text-align: center;
+    }
+    
+    
+    .scroll-div {
+        max-height: auto;
+        overflow: auto;
+    }
+    .section{
+        background-color:#19c5b2;
+        height:auto;
+
+
+    }
+    .section > a {
+    background-color: white;
+    width: 18px;
+    margin: 4px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 16px;
+}
+#tieude{
+    font-size: 30px;
+    color:yellow;
+}
+
+</style>
+
+</head>
+<body>
+    <div id="container">
+       
+        <div id="center-section" class="section">
+            <p id="tieude"><span style="color:wheat;">Tiếng Anh 6:</span> Unit 8<span style="color:wheat;"> (listening)</span></p>
+            <a id="78" onclick="getId(this)"><audio id="audio-78"><source src="./mp3s/G6SB8U231.wav" type="audio/mpeg"></audio><img src="./images/audio16.png">2.31-T96</a>
+            <a id="79" onclick="getId(this)"><audio id="audio-79"><source src="./mp3s/G6SB8U232.wav" type="audio/mpeg"></audio><img src="./images/audio16.png">2.32-T97</a>
+            <a id="80" onclick="getId(this)"><audio id="audio-80"><source src="./mp3s/G6SB8U233.wav" type="audio/mpeg"></audio><img src="./images/audio16.png">2.33-T98</a>
+            <a id="81" onclick="getId(this)"><audio id="audio-81"><source src="./mp3s/G6SB8U234.wav" type="audio/mpeg"></audio><img src="./images/audio16.png">2.34-T99</a>
+            <a id="82" onclick="getId(this)"><audio id="audio-82"><source src="./mp3s/G6SB8U235.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">2.35-T100</a>
+            <a id="83" onclick="getId(this)"><audio id="audio-83"><source src="./mp3s/G6SB8U236.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">2.36-T100</a>
+            <a id="84" onclick="getId(this)"><audio id="audio-84"><source src="./mp3s/G6SB8U237.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">2.37-T102</a>
+            <a id="85" onclick="getId(this)"><audio id="audio-85"><source src="./mp3s/G6SB8U238.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">2.38-T102</a>
+            <a id="86" onclick="getId(this)"><audio id="audio-86"><source src="./mp3s/G6SB8U239.wav" type="audio/mpeg"></audio><img src="./images/audio16.png">2.39-T104</a>
+            <a id="87" onclick="getId(this)"><audio id="audio-87"><source src="./mp3s/G6SB8U240.wav" type="audio/mpeg"></audio><img src="./images/audio16.png">2.40-T106</a>
+            <a id="88" onclick="getId(this)"><audio id="audio-88"><source src="./mp3s/G6SB8U241.wav" type="audio/mpeg"></audio><img src="./images/audio16.png">2.41-T108</a>
+            <p></p>
+        </div>
+    
+        <div class="scroll1-div" >
+            
+            <object
+              data="./pdfs/En06-T1.pdf"
+              type="application/pdf"
+              width="100%"
+              height="100%"
+              id="ob1" 
+            >
+      
+              <iframe
+                src="./pdfs/En06-T1.pdf"
+                width="100%"
+                height="100%"
+              >
+              <p>This browser does not support PDF!</p>
+              </iframe>
+      
+            </object>
+          
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    </div>
+
+   
+</div>
+<script>
+var currentAudio = null;
+var currentId = ""; 
+var currentIdmau = "white"; 
+
+function getId(ptdaclick){
+    //doi mau o chon truoc ra trang  va omoi chon ra xanh 
+    if(currentId != "" && currentIdmau=="lightgreen"){document.getElementById(currentId).style.backgroundColor = "white";}
+    var nameId=event.target.id;
+    document.getElementById(nameId).style.backgroundColor = "lightgreen";
+    currentId=nameId;
+    currentIdmau="lightgreen";
+
+    //doi pdf bai moi chon 
+    var tenteppdf = document.getElementById(nameId).innerHTML;
+    tenteppdf=tenteppdf.slice(tenteppdf.indexOf("-T"));
+    let elements = document.getElementById('ob1').data='./pdfs/En06'+tenteppdf+'.pdf';
+
+    //tat audio o chon truoc va bat audio o moi chon
+    if(currentAudio != null && !currentAudio.paused){
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
+    var audio = $('#audio-'+ptdaclick.id)[0];
+    audio.play();
+    currentAudio = audio;
+    
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>En6 Starter Unit</title>
+<style>
+    body {
+        margin: 1 1 1 1;
+    }
+    
+    #container {
+        display: grid;
+        grid-template-columns: 100%;
+        text-align: center;
+    }
+    
+    
+    .scroll-div {
+        max-height: auto;
+        overflow: auto;
+    }
+    .section{
+        background-color:#19c5b2;
+        height:auto;
+
+
+    }
+    .section > a {
+    background-color: white;
+    width: 18px;
+    margin: 4px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 16px;
+}
+#tieude{
+    font-size: 30px;
+    color:yellow;
+}
+
+</style>
+
+</head>
+<body>
+    <div id="container">
+       
+        <div id="center-section" class="section">
+            <p id="tieude"><span style="color:wheat;">Tiếng Anh 6:</span> Unit 7<span style="color:wheat;"> (listening)</span></p>
+            <a id="70" onclick="getId(this)"><audio id="audio-70"><source src="./mp3s/G6SB7U223.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">2.23-T86</a>
+            <a id="71" onclick="getId(this)"><audio id="audio-71"><source src="./mp3s/G6SB7U224.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">2.24-T86</a>
+            <a id="72" onclick="getId(this)"><audio id="audio-72"><source src="./mp3s/G6SB7U225.wav" type="audio/mpeg"></audio><img src="./images/audio16.png">2.25-T87</a>
+            <a id="73" onclick="getId(this)"><audio id="audio-73"><source src="./mp3s/G6SB7U226.wav" type="audio/mpeg"></audio><img src="./images/audio16.png">2.26-T88</a>
+            <a id="74" onclick="getId(this)"><audio id="audio-74"><source src="./mp3s/G6SB7U227.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">2.27-T90</a>
+            <a id="75" onclick="getId(this)"><audio id="audio-75"><source src="./mp3s/G6SB7U228.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">2.28-T90</a>
+            <a id="76" onclick="getId(this)"><audio id="audio-76"><source src="./mp3s/G6SB7U229.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">2.29-T92</a>
+            <a id="77" onclick="getId(this)"><audio id="audio-77"><source src="./mp3s/G6SB7U230.wav" type="audio/mpeg"></audio><img src="./images/audio16.png">2.30-T94</a>
+            <p></p>
+        </div>
+    
+        <div class="scroll1-div" >
+            
+            <object
+              data="./pdfs/En06-T1.pdf"
+              type="application/pdf"
+              width="100%"
+              height="100%"
+              id="ob1" 
+            >
+      
+              <iframe
+                src="./pdfs/En06-T1.pdf"
+                width="100%"
+                height="100%"
+              >
+              <p>This browser does not support PDF!</p>
+              </iframe>
+      
+            </object>
+          
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    </div>
+
+   
+</div>
+<script>
+var currentAudio = null;
+var currentId = ""; 
+var currentIdmau = "white"; 
+
+function getId(ptdaclick){
+    //doi mau o chon truoc ra trang  va omoi chon ra xanh 
+    if(currentId != "" && currentIdmau=="lightgreen"){document.getElementById(currentId).style.backgroundColor = "white";}
+    var nameId=event.target.id;
+    document.getElementById(nameId).style.backgroundColor = "lightgreen";
+    currentId=nameId;
+    currentIdmau="lightgreen";
+
+    //doi pdf bai moi chon 
+    var tenteppdf = document.getElementById(nameId).innerHTML;
+    tenteppdf=tenteppdf.slice(tenteppdf.indexOf("-T"));
+    let elements = document.getElementById('ob1').data='./pdfs/En06'+tenteppdf+'.pdf';
+
+    //tat audio o chon truoc va bat audio o moi chon
+    if(currentAudio != null && !currentAudio.paused){
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
+    var audio = $('#audio-'+ptdaclick.id)[0];
+    audio.play();
+    currentAudio = audio;
+    
+}
+</script>
+
+</body>
+</html>
