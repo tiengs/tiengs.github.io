@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>En6 Starter Unit</title>
+<style>
+    body {
+        margin: 1 1 1 1;
+    }
+    
+    #container {
+        display: grid;
+        grid-template-columns: 100%;
+        text-align: center;
+    }
+    
+    
+    .scroll-div {
+        max-height: auto;
+        overflow: auto;
+    }
+    .section{
+        background-color:#19c5b2;
+        height:auto;
+
+
+    }
+    .section > a {
+    background-color: white;
+    width: 18px;
+    margin: 4px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 16px;
+}
+#tieude{
+    font-size: 30px;
+    color:yellow;
+}
+
+</style>
+
+</head>
+<body>
+    <div id="container">
+       
+        <div id="center-section" class="section">
+            <p id="tieude"><span style="color:wheat;">Tiếng Anh 6:</span> Starter Unit<span style="color:wheat;"> (listening)</span></p>
+            <a id="1" onclick="getId(this)"><audio id="audio-1"><source src="./mp3s/G6SBST102.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.02-T6</a>
+            <a id="2" onclick="getId(this)"><audio id="audio-2"><source src="./mp3s/G6SBST103.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.03-T6</a>
+            <a id="3" onclick="getId(this)"><audio id="audio-3"><source src="./mp3s/G6SBST104.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.04-T6</a>
+            <a id="4" onclick="getId(this)"><audio id="audio-4"><source src="./mp3s/G6SBST105.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.05-T8</a>
+            <a id="5" onclick="getId(this)"><audio id="audio-5"><source src="./mp3s/G6SBST106.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.06-T8</a>
+            <a id="6" onclick="getId(this)"><audio id="audio-6"><source src="./mp3s/G6SBST107.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.07-T9</a>
+            <a id="7" onclick="getId(this)"><audio id="audio-7"><source src="./mp3s/G6SBST108.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.08-T10</a>
+            <a id="8" onclick="getId(this)"><audio id="audio-8"><source src="./mp3s/G6SBST109.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.09-T11</a>
+            <a id="9" onclick="getId(this)"><audio id="audio-9"><source src="./mp3s/G6SBST110.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.10-T12</a>
+            <a id="10" onclick="getId(this)"><audio id="audio-10"><source src="./mp3s/G6SBST111.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.11-T13</a>
+            <p></p>
+        </div>
+        <div class="scroll1-div" >
+
+        <img src="./pdfs/En06-T6-t.png" alt="Trulli" width="100%" height="100%">    
+        </div>
+        
+   
+</div>
+<script>
+var currentAudio = null;
+var currentId = ""; 
+var currentIdmau = "white"; 
+
+function getId(ptdaclick){
+    //doi mau o chon truoc ra trang  va omoi chon ra xanh 
+    if(currentId != "" && currentIdmau=="lightgreen"){document.getElementById(currentId).style.backgroundColor = "white";}
+    var nameId=event.target.id;
+    document.getElementById(nameId).style.backgroundColor = "lightgreen";
+    currentId=nameId;
+    currentIdmau="lightgreen";
+
+    //doi pdf bai moi chon 
+    var tenteppdf = document.getElementById(nameId).innerHTML;
+    tenteppdf=tenteppdf.slice(tenteppdf.indexOf("-T"));
+    let elements = document.getElementById('ob1').data='./pdfs/En06'+tenteppdf+'.pdf';
+
+    //tat audio o chon truoc va bat audio o moi chon
+    if(currentAudio != null && !currentAudio.paused){
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
+    var audio = $('#audio-'+ptdaclick.id)[0];
+    audio.play();
+    currentAudio = audio;
+    
+}
+</script>
+
+</body>
+</html>
