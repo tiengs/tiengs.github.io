@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <title>En6 Starter Unit</title>
+    <title>En6 Unit 8</title>
 <style>
     a:link {
  text-decoration: none;
@@ -47,13 +47,18 @@
 }
 
 </style>
+<script>
+    var min=96;
+    var max=109;
+    var trangcurr=0
+</script>
 
 </head>
 <body>
     <div id="container">
        
         <div id="center-section" class="section">
-            <p id="tieude"><span style="color:wheat;"><a href="nghe-ta6-u7.html">&#9001;</a>Tiếng Anh 6:</span> Unit 8<span style="color:wheat;"> (listening)</span><a href="/">&#9002;</a></p>
+            <p id="tieude"><span style="color:wheat;"><a href="nghe-ta6-u7.html">&#9001;</a>&#32;<a href="#" onclick="getPagePdfG();">&#9001;</a>Tiếng Anh 6:</span> Unit 8<span style="color:wheat;"> (listening)</span><a href="#" onclick="getPagePdfT();">&#9002;</a>&#32;<a href="nghe-ta6-extra.html">&#9002;</a></p>
             <a id="78" onclick="getId(this)"><audio id="audio-78"><source src="./mp3s/G6SB8U231.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">2.31-T96</a>
             <a id="79" onclick="getId(this)"><audio id="audio-79"><source src="./mp3s/G6SB8U232.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">2.32-T97</a>
             <a id="80" onclick="getId(this)"><audio id="audio-80"><source src="./mp3s/G6SB8U233.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">2.33-T98</a>
@@ -94,6 +99,35 @@
 
    
 </div>
+<script>
+    function getPagePdfG(){
+        var tenteppdf = document.getElementById('ob1').innerHTML;
+        if (trangcurr<min || trangcurr>max){ 
+            trangcurr=min;
+        } else {
+            if (trangcurr<=max && trangcurr>min){    
+                trangcurr=trangcurr-1;
+            }
+        }
+        tenteppdf='-T'+String(trangcurr);
+        let elements = document.getElementById('ob1').data='./pdfs/En06'+tenteppdf+'.pdf';
+        }
+</script>
+<script>
+    function getPagePdfT(){
+        var tenteppdf = document.getElementById('ob1').innerHTML;
+        if (trangcurr<min || trangcurr>max){ 
+            trangcurr=min;
+        } else {    
+            if (trangcurr<max && trangcurr>=min){    
+                trangcurr=trangcurr+1;
+            }
+        }
+        tenteppdf='-T'+String(trangcurr);
+        let elements = document.getElementById('ob1').data='./pdfs/En06'+tenteppdf+'.pdf';
+        }
+</script>
+
 <script>
 var currentAudio = null;
 var currentId = ""; 
