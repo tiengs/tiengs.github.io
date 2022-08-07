@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>En7 Unit 2</title>
+<style>
+    a:link {
+ text-decoration: none;
+}
+
+    body {
+        margin: 1 1 1 1;
+    }
+    
+    #container {
+        display: grid;
+        grid-template-columns: 100%;
+        text-align: center;
+    }
+    
+    
+    .scroll-div {
+        max-height: auto;
+        overflow: auto;
+    }
+    .section{
+        background-color:#19c5b2;
+        height:auto;
+
+
+    }
+    .section > a {
+    background-color: white;
+    width: 18px;
+    margin: 4px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 16px;
+}
+#tieude{
+    font-size: 30px;
+    color:yellow;
+}
+
+</style>
+<script>
+    var min=20;
+    var max=33;
+    var trangcurr=0
+</script>
+
+</head>
+<body>
+    <div id="container">
+      
+        <div id="center-section" class="section">
+            <p id="tieude"><span style="color:wheat;"><a href="nghe-ta7-u1.html">&#9001;</a><a href="#" onclick="getPagePdfG();">&#9001;</a>Tiếng Anh 7:</span> Unit 2<span style="color:wheat;"> (listening)</span><a href="#" onclick="getPagePdfT();">&#9002;</a><a href="nghe-ta7-u3.html">&#9002;</a></p>
+            <a id="713" onclick="getId(this)"><audio id="audio-713"><source src="./mp3s/G7SB2U114.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.14-T20</a>
+            <a id="714" onclick="getId(this)"><audio id="audio-714"><source src="./mp3s/G7SB2U115.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.15-T21</a>
+            <a id="715" onclick="getId(this)"><audio id="audio-715"><source src="./mp3s/G7SB2U116.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.16-T22</a>
+            <a id="716" onclick="getId(this)"><audio id="audio-716"><source src="./mp3s/G7SB2U117.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.17-T23</a>
+            <a id="717" onclick="getId(this)"><audio id="audio-717"><source src="./mp3s/G7SB2U118.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.18-T24</a>
+            <a id="718" onclick="getId(this)"><audio id="audio-718"><source src="./mp3s/G7SB2U119.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.19-T24</a>
+            <a id="719" onclick="getId(this)"><audio id="audio-719"><source src="./mp3s/G7SB2U120.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.20-T24</a>
+            <a id="720" onclick="getId(this)"><audio id="audio-720"><source src="./mp3s/G7SB2U121.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.21-T25</a>
+            <a id="721" onclick="getId(this)"><audio id="audio-721"><source src="./mp3s/G7SB2U122.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.22-T26</a>
+            <a id="722" onclick="getId(this)"><audio id="audio-722"><source src="./mp3s/G7SB2U123.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.23-T26</a>
+            <a id="723" onclick="getId(this)"><audio id="audio-723"><source src="./mp3s/G7SB2U124.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.24-T28</a>
+            <a id="724" onclick="getId(this)"><audio id="audio-724"><source src="./mp3s/G7SB2U125.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.25-T30</a>
+            <a id="725" onclick="getId(this)"><audio id="audio-725"><source src="./mp3s/G7SB2U126.mp3" type="audio/mpeg"></audio><img src="./images/audio16.png">1.26-T32</a>
+            <p></p>
+        </div>
+    
+        <div class="scroll1-div" >
+            
+            <object
+              data="./pdfs/En07-T1.pdf"
+              type="application/pdf"
+              width="100%"
+              height="100%"
+              id="ob1" 
+            >
+      
+              <iframe
+                src="./pdfs/En07-T1.pdf"
+                width="100%"
+                height="100%"
+              >
+              <p>This browser does not support PDF!</p>
+              </iframe>
+      
+            </object>
+          
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    </div>
+
+   
+</div>
+<script>
+    function getPagePdfG(){
+        var tenteppdf = document.getElementById('ob1').innerHTML;
+        if (trangcurr<min || trangcurr>max){ 
+            trangcurr=min;
+        } else {
+            if (trangcurr<=max && trangcurr>min){    
+                trangcurr=trangcurr-1;
+            }
+        }
+        tenteppdf='-T'+String(trangcurr);
+        let elements = document.getElementById('ob1').data='./pdfs/En07'+tenteppdf+'.pdf';
+        }
+</script>
+<script>
+    function getPagePdfT(){
+        var tenteppdf = document.getElementById('ob1').innerHTML;
+        if (trangcurr<min || trangcurr>max){ 
+            trangcurr=min;
+        } else {    
+            if (trangcurr<max && trangcurr>=min){    
+                trangcurr=trangcurr+1;
+            }
+        }
+        tenteppdf='-T'+String(trangcurr);
+        let elements = document.getElementById('ob1').data='./pdfs/En07'+tenteppdf+'.pdf';
+        }
+</script>
+
+<script>
+var currentAudio = null;
+var currentId = ""; 
+var currentIdmau = "white"; 
+
+function getId(ptdaclick){
+    //doi mau o chon truoc ra trang  va omoi chon ra xanh 
+    if(currentId != "" && currentIdmau=="lightgreen"){document.getElementById(currentId).style.backgroundColor = "white";}
+    var nameId=event.target.id;
+    document.getElementById(nameId).style.backgroundColor = "lightgreen";
+    currentId=nameId;
+    currentIdmau="lightgreen";
+
+    //doi pdf bai moi chon 
+    var tenteppdf = document.getElementById(nameId).innerHTML;
+    tenteppdf=tenteppdf.slice(tenteppdf.indexOf("-T"));
+    let elements = document.getElementById('ob1').data='./pdfs/En07'+tenteppdf+'.pdf';
+
+    //tat audio o chon truoc va bat audio o moi chon
+    if(currentAudio != null && !currentAudio.paused){
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
+    var audio = $('#audio-'+ptdaclick.id)[0];
+    audio.play();
+    currentAudio = audio;
+    
+}
+</script>
+
+</body>
+</html>
